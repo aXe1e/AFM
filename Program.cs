@@ -6,7 +6,18 @@ namespace AFM
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            FileManager AFS = new FileManager(@"c:\aaa");
+            string cmds = string.Empty;
+            do
+            {
+                Console.Write(AFS.GetCD() + ">");
+                cmds = Console.ReadLine().ToLower();
+
+                if (cmds != "quit")
+                {
+                    AFS.ParseCommands(cmds);
+                }
+            } while (cmds != "quit");
         }
     }
 }
